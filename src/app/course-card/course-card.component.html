@@ -1,0 +1,31 @@
+<div class="course-card " [ngClass]="cardClases()">
+<div class="course-title" [ngStyle]=" cardStyles()">
+{{index}}  {{course?.description}}
+</div>
+
+
+<img [src]="course?.iconUrl" [alt]="course?.description">
+
+<div class="course-description">
+{{course?.longDescription}}
+</div>
+
+<div class="course-category">
+  @switch (course?.category) {
+    @case ("BEGINNER") {
+      <div class="category">BEGINNER</div>
+    }
+    @case ("INTERMEDIATE") {
+      <div class="category">INTERMEDIATE</div>
+    }
+    @case ("ADVANCE") {
+      <div class="category">ADVANCE</div>
+    }
+    @default {
+      <div> Unknown</div>
+    }
+  }
+  </div>
+
+<button (click)="onCourseViewed()">View Course</button>
+</div>
